@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app>
-    <display-name>Archetype Created Web Application</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>Spring3MVC</display-name>
+	
+	<servlet>
+		<servlet-name>spring</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>spring</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>tutorial</servlet-name>
+	    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
 
-    <servlet>
-        <servlet-name>Resteasy</servlet-name>
-        <servlet-class>
-            org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
-        </servlet-class>
-        <init-param>
-            <param-name>javax.ws.rs.Application</param-name>
-            <param-value>com.restfully.shop.services.ShoppingApplication</param-value>
-        </init-param>
-    </servlet>
+ <listener>
+       <listener-class>
+          org.springframework.web.context.ContextLoaderListener
+       </listener-class>
+  </listener>
+  
+<servlet-mapping>
+    <servlet-name>tutorial</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+</servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>Resteasy</servlet-name>
-        <url-pattern>/*</url-pattern>
-    </servlet-mapping>
-
+  <context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>/WEB-INF/spring-servlet.xml</param-value>
+  </context-param>
+ 
+ 
 </web-app>

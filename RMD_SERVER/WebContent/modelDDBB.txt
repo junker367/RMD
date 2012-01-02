@@ -1,0 +1,12 @@
+Modelo de datos
+
+Usuario se loguea con mail+pwd/facebook/twitter
+Usuario puede recuperar el passwd con su mail
+Usuario tiene n moviles
+
+Movil tiene una ip activa
+Movil tiene historico de ip's
+Una ip tiene historico de apariciones
+ips tiene valor,
+
+tabla
