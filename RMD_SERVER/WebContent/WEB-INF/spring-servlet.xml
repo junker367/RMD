@@ -7,9 +7,7 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-
 	<context:component-scan base-package="net.viralpatel.spring3.controller" />
-
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -19,15 +17,69 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-<!-- 	 
-	<bean id="viewResolver"
-      	   class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
-           <property name="prefix">
-              <value>/WEB-INF/jsp/</value>
-           </property>
-           <property name="suffix">
-              <value>.jsp</value>
-           </property>
-        </bean>
-        -->
+	<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/techfaq</value>
+		</property>
+		<property name="username">
+			<value>techfaq</value>
+		</property>
+		<property name="password">
+			<value>techfaq</value>
+		</property>
+
+	</bean>
+	
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="myDataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>/com/dao/user.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+</value>
+		</property>
+	</bean>
+
+	<bean id="userdao" class="com.dao.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="mySessionFactory" />
+		</property>
+
+	</bean>
+
+	<bean id="userController" class="com.dao.UserController">
+		<property name="sessionForm">
+			<value>true</value>
+		</property>
+		<property name="commandName">
+			<value>userBean</value>
+		</property>
+		<property name="commandClass">
+			<value>com.dao.UserBean</value>
+		</property>
+		<property name="validator">
+			<ref bean="userFormValidator" />
+		</property>
+		<property name="formView">
+			<value>userForm</value>
+		</property>
+		<property name="successView">
+			<value>success</value>
+		</property>
+		<property name="userdao">
+			<ref bean="userdao" />
+		</property>
+	</bean>
+
 </beans>
