@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/3/trunk/SpringRestfulExample/src/main/webapp/WEB-INF
+END
+SpringRestfulExample-servlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/3/trunk/SpringRestfulExample/src/main/webapp/WEB-INF/SpringRestfulExample-servlet.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/3/trunk/SpringRestfulExample/src/main/webapp/WEB-INF/web.xml
+END
