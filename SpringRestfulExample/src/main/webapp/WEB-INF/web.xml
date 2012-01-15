@@ -15,7 +15,7 @@
  
 	<servlet-mapping>
     		<servlet-name>SpringRestfulExample</servlet-name>
-    		<url-pattern>/app/*</url-pattern>
+    		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping>
  
 	<welcome-file-list>

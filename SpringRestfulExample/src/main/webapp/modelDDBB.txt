@@ -1,0 +1,40 @@
+Conguraciones:
+
+server sync
+Acceso por SSH a la IP 93.93.118.19 puerto 6922
+root
+uYf54aC1x
+
+
+BBDD_RMD_SYNC
+host:93.93.118.19
+user:rmd
+pwd:grupocomex
+port:3306
+databases:rmd
+
+Modelo de datos
+
+Usuario se loguea con mail+pwd/facebook/twitter
+Usuario puede recuperar el passwd con su mail
+Usuario tiene n moviles
+
+Movil tiene una ip activa
+Movil tiene historico de ip's
+Una ip tiene historico de apariciones
+ips tiene valor,
+
+
+
+CREATE TABLE `user` (
+	`mail` VARCHAR(50) NOT NULL,
+	`pwd` VARCHAR(100) NOT NULL,
+	`movil` INT(9) NOT NULL,
+	`ip` VARCHAR(15) NULL,
+	`token` VARCHAR(10) NOT NULL,
+	PRIMARY KEY (`mail`),
+	UNIQUE INDEX `token` (`token`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+ROW_FORMAT=DEFAULT
